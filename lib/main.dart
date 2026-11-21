@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:miuulflutter/screens/button_types.dart';
 import 'package:miuulflutter/screens/container_widget.dart';
 import 'package:miuulflutter/screens/home_page.dart';
+import 'package:miuulflutter/screens/red_page.dart';
 import 'package:miuulflutter/screens/row_column_widget.dart';
+import 'package:miuulflutter/screens/single_child.dart';
+import 'package:miuulflutter/screens/snacbar_widget.dart';
 import 'package:miuulflutter/screens/text_icon_placeholder.dart';
 
 void main() {
@@ -17,8 +20,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(colorScheme: .fromSeed(seedColor: Colors.deepPurple)),
-     home: ButtonTypes(),
+      home: SingleChild(),
     );
   }
 }
-
