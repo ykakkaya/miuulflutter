@@ -61,12 +61,51 @@ class _ListWidgetsState extends State<ListWidgets> {
         ),
         centerTitle: true,
       ),
-      body: ListView.builder(
+      body: GridView.builder(
         itemCount: contactList.length,
+
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
+        ),
+
         itemBuilder: (context, index) {
-          return contactListItem(index);
+          return Card(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                CircleAvatar(
+                  child: Icon(Icons.person, color: Colors.yellow),
+                  radius: 24,
+                  backgroundColor: Colors.red,
+                ),
+                Text(contactList[index]["name"] ?? 'Hatalı veri Formatı'),
+                Text(contactList[index]["number"] ?? "0000000000"),
+                ElevatedButton(
+                  onPressed: () {
+                    print("Arama Yapılıyor");
+                  },
+                  child: Text(
+                    "Arama Yap",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
+                ),
+              ],
+            ),
+          );
         },
       ),
+
+      //contactListView(),
+    );
+  }
+
+  ListView contactListView() {
+    return ListView.builder(
+      itemCount: contactList.length,
+      itemBuilder: (context, index) {
+        return contactListItem(index);
+      },
     );
   }
 
